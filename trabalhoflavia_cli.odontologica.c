@@ -1,21 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>         					// sistema criado para gerenciamento de uma clinica odontologica
+#include <stdlib.h>         					
 #include <string.h>
 
 typedef struct {
     char nome[100];
     int idade;
-    char telefone[15];   						// estrutura de identificaçao do paciente 		
-
+    char telefone[15];   						
 typedef struct {
-    Paciente pacientes[100];                              // estrutura para quantidade de cadastros da clinica
-    int numPacientes;             // controle de registros dos pacientes               
-    const int maximoPacientes;   // quantidade maxima de pacientes na clinica 
+    Paciente pacientes[100];                              
+    int numPacientes;                          
+    const int maximoPacientes;  
 } Clinica;/ 
 } Paciente;
 
 void inicializarClinica(Clinica *clinica) {
-    clinica->numPacientes = 0;      // começa com 0, pois nao ha pacientes cadastrados
+    clinica->numPacientes = 0;     
     *(int *)&(clinica->maximoPacientes) = 100;
 }
 
@@ -23,14 +22,14 @@ void mostrarMenu() {
     printf("\n==== CLINICA ODONTOLOGICA ====\n");
     printf("1. Cadastro\n");
     printf("2. Consulta\n");
-    printf("3. Gerar Relatorio\n");                           // menu de opçoes
+    printf("3. Gerar Relatorio\n");                           
     printf("4. Excluir\n");
     printf("5. Sair\n");
     printf("Escolha uma opcao: ");                                
 }
 
 void cadastrarPaciente(Clinica *clinica) {
-    if (clinica->numPacientes >= clinica->maximoPacientes) {         //confere se o numero de pacintes atingiu o limite 
+    if (clinica->numPacientes >= clinica->maximoPacientes) {         
         printf("Limite de pacientes atingido!\n");
         return;
     }
